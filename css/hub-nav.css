@@ -1,0 +1,46 @@
+/* Shared top strip linking between puzzle hub sites. Included by the hub
+   landing page and every puzzle type's index.html. Relies on each host
+   page's own --ink / --ink-soft / --accent / --rule / --paper-line tokens
+   so it always matches that page's light/dark palette. */
+
+.hub-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 10px 16px;
+  font-size: 0.8rem;
+  border-bottom: 1px solid var(--paper-line);
+}
+
+.hub-nav-home {
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.hub-nav-home:hover {
+  color: var(--ink);
+}
+
+.hub-nav-links {
+  display: flex;
+  gap: 14px;
+}
+
+.hub-nav-links a {
+  color: var(--ink-soft);
+  text-decoration: none;
+}
+
+.hub-nav-links a:hover {
+  color: var(--ink);
+}
+
+.hub-nav-links a[aria-current="page"] {
+  color: var(--accent);
+  font-weight: 600;
+}

@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title id="pageTitle">Daily Sudoku — A New Puzzle Every Day, Free</title>
+<meta id="metaDescription" name="description" content="Play a free daily sudoku puzzle in your browser. No sign-up, no app — a new hand-verified puzzle every day, with light, dark, and system themes." />
+<meta name="robots" content="index, follow" />
+<link id="canonicalLink" rel="canonical" href="https://puzzles.souravkhoso1.com/sudoku/" />
+
+<!-- Open Graph -->
+<meta id="ogTitle" property="og:title" content="Daily Sudoku — A New Puzzle Every Day" />
+<meta id="ogDescription" property="og:description" content="Play a free daily sudoku puzzle in your browser. No sign-up, no app." />
+<meta property="og:type" content="website" />
+<meta id="ogUrl" property="og:url" content="https://puzzles.souravkhoso1.com/sudoku/" />
+<meta property="og:image" content="https://puzzles.souravkhoso1.com/sudoku/assets/og-image.png" />
+<meta property="og:site_name" content="Puzzle Hub" />
+
+<!-- Twitter card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta id="twitterTitle" name="twitter:title" content="Daily Sudoku — A New Puzzle Every Day" />
+<meta id="twitterDescription" name="twitter:description" content="Play a free daily sudoku puzzle in your browser. No sign-up, no app." />
+<meta name="twitter:image" content="https://puzzles.souravkhoso1.com/sudoku/assets/og-image.png" />
+
+<meta name="theme-color" content="#f7f5f0" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#1b1f24" media="(prefers-color-scheme: dark)" />
+
+<link rel="stylesheet" href="../css/hub-nav.css" />
+<link rel="stylesheet" href="css/style.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23F7F5F0'/%3E%3Cg stroke='%231F2933' stroke-width='6' fill='none'%3E%3Crect x='10' y='10' width='80' height='80'/%3E%3Cline x1='36.6' y1='10' x2='36.6' y2='90'/%3E%3Cline x1='63.3' y1='10' x2='63.3' y2='90'/%3E%3Cline x1='10' y1='36.6' x2='90' y2='36.6'/%3E%3Cline x1='10' y1='63.3' x2='90' y2='63.3'/%3E%3C/g%3E%3C/svg%3E" />
+
+<script type="application/ld+json" id="structuredData">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Daily Sudoku",
+  "url": "https://puzzles.souravkhoso1.com/sudoku/",
+  "applicationCategory": "Game",
+  "operatingSystem": "Any",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": "A free daily sudoku puzzle you can play in your browser. A new hand-verified puzzle every day."
+}
+</script>
+</head>
+<body>
+
+<div class="hub-nav">
+  <a href="/" class="hub-nav-home">🧩 Puzzle Hub</a>
+  <nav class="hub-nav-links">
+    <a href="/sudoku/" aria-current="page">Sudoku</a>
+    <a href="/kakuro/">Kakuro</a>
+  </nav>
+</div>
+
+<div class="wrap">
+
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true">
+        <rect x="2" y="2" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <line x1="14.6" y1="2" x2="14.6" y2="38" stroke="currentColor" stroke-width="2.5"/>
+        <line x1="25.3" y1="2" x2="25.3" y2="38" stroke="currentColor" stroke-width="2.5"/>
+        <line x1="2" y1="14.6" x2="38" y2="14.6" stroke="currentColor" stroke-width="2.5"/>
+        <line x1="2" y1="25.3" x2="38" y2="25.3" stroke="currentColor" stroke-width="2.5"/>
+      </svg>
+      <div>
+        <h1>Daily Sudoku</h1>
+        <p class="tagline" id="dateLine">Loading today's puzzle&hellip;</p>
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <span class="difficulty-badge" id="difficultyBadge" hidden></span>
+      <div class="theme-toggle" id="themeToggle" role="group" aria-label="Theme">
+        <button type="button" data-theme-choice="light" aria-label="Light theme" title="Light">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1.5" x2="12" y2="4.5"/><line x1="12" y1="19.5" x2="12" y2="22.5"/><line x1="1.5" y1="12" x2="4.5" y2="12"/><line x1="19.5" y1="12" x2="22.5" y2="12"/><line x1="4.4" y1="4.4" x2="6.5" y2="6.5"/><line x1="17.5" y1="17.5" x2="19.6" y2="19.6"/><line x1="4.4" y1="19.6" x2="6.5" y2="17.5"/><line x1="17.5" y1="6.5" x2="19.6" y2="4.4"/></g></svg>
+        </button>
+        <button type="button" data-theme-choice="system" aria-label="System theme" title="System">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="4.5" width="19" height="13" rx="1.5" fill="none" stroke="currentColor" stroke-width="2"/><line x1="8" y1="21" x2="16" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="17.5" x2="12" y2="21" stroke="currentColor" stroke-width="2"/></svg>
+        </button>
+        <button type="button" data-theme-choice="dark" aria-label="Dark theme" title="Dark">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="date-nav" aria-label="Puzzle date">
+    <button type="button" class="date-nav-btn" id="prevDateBtn" aria-label="Previous puzzle">&larr;</button>
+    <div class="date-nav-current">
+      <input type="date" id="datePicker" aria-label="Jump to a puzzle date" />
+    </div>
+    <button type="button" class="date-nav-btn" id="nextDateBtn" aria-label="Next puzzle">&rarr;</button>
+    <button type="button" class="btn-ghost date-today-btn" id="todayBtn" hidden>Today</button>
+  </nav>
+
+  <main id="app" aria-live="polite">
+
+    <div class="stat-row">
+      <div class="stat">
+        <span class="stat-label">Time</span>
+        <span class="stat-value" id="timerDisplay">00:00</span>
+      </div>
+      <div class="stat">
+        <span class="stat-label">Mistakes</span>
+        <span class="stat-value" id="mistakesDisplay">0 / 3</span>
+      </div>
+      <button class="btn-ghost" id="restartBtn" type="button">Restart</button>
+    </div>
+
+    <div class="board-area">
+      <div class="board" id="board" role="grid" aria-label="Sudoku board"></div>
+    </div>
+
+    <div class="numpad" id="numpad" aria-label="Number entry">
+      <button type="button" data-num="1">1</button>
+      <button type="button" data-num="2">2</button>
+      <button type="button" data-num="3">3</button>
+      <button type="button" data-num="4">4</button>
+      <button type="button" data-num="5">5</button>
+      <button type="button" data-num="6">6</button>
+      <button type="button" data-num="7">7</button>
+      <button type="button" data-num="8">8</button>
+      <button type="button" data-num="9">9</button>
+      <button type="button" data-num="0" class="erase" aria-label="Erase">⌫</button>
+    </div>
+
+    <p class="hint">Tap a cell, then a number. Selecting a filled cell highlights every matching number on the board. Three mistakes and it's a restart.</p>
+
+    <section class="seo-copy">
+      <h2>A free daily sudoku puzzle</h2>
+      <p>Daily Sudoku publishes one new, uniquely-solvable sudoku puzzle every day — no account, no app download, and no ads. Play directly in your browser on desktop or mobile, track your solve time, and look back through past days' puzzles any time using the date navigator above.</p>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Puzzles are generated daily and stored in this site's git repository. Your progress is saved on this device only.</p>
+  </footer>
+
+</div>
+
+<!-- Mistake-limit / restart modal -->
+<div class="modal-backdrop" id="restartModal" hidden>
+  <div class="modal" role="alertdialog" aria-labelledby="restartTitle">
+    <h2 id="restartTitle">Three mistakes</h2>
+    <p>That's the limit for today's puzzle. Starting over resets the board and the timer.</p>
+    <button class="btn-primary" id="restartConfirmBtn" type="button">Start over</button>
+  </div>
+</div>
+
+<!-- Completion modal -->
+<div class="modal-backdrop" id="winModal" hidden>
+  <div class="modal" role="dialog" aria-labelledby="winTitle">
+    <h2 id="winTitle">Solved it</h2>
+    <dl class="win-stats">
+      <div><dt>Time</dt><dd id="winTime">00:00</dd></div>
+      <div><dt>Mistakes</dt><dd id="winMistakes">0</dd></div>
+      <div><dt>Difficulty</dt><dd id="winDifficulty">—</dd></div>
+    </dl>
+    <div class="modal-actions">
+      <button class="btn-primary" id="downloadCertBtn" type="button">Download certificate</button>
+      <button class="btn-ghost" id="closeWinBtn" type="button">Close</button>
+    </div>
+  </div>
+</div>
+
+<canvas id="certCanvas" width="1000" height="600" hidden aria-hidden="true"></canvas>
+
+<script src="js/app.js"></script>
+</body>
+</html>
